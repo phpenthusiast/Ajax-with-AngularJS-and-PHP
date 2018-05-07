@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="ajaxExample" ng-cloak>
+<head lang="en">
+<meta charset="utf-8">
+<title>Angular Ajax with PHP</title>
+</head>
+<body>
+
+<h1>The form</h1>
+
+<div ng-controller="mainController">
+
+<form role="form" id="contact_form"> 
+	
+    <p><strong>Fill the form and submit to add new name and phone number to the list.</strong></p>
+    <div class="form-group">
+        <label>Name <span class="required">*</span></label>
+        <br />
+        <input type="text" ng-model="newName" class="form-control">
+    </div>
+        
+    <div class="form-group">
+        <label>Phone <span class="required">*</span></label>
+        <br />
+        <input type="text" ng-model="newPhone" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <input type="button" value="Submit" ng-click="addPerson()" id="contact_submit">
+    </div>
+    
+</form>
+
+<h2>The list</h2>
+
+<ul>
+    <li ng-repeat="person in people">
+        <button ng-click="deletePerson( person.id )">Delete</button> {{ person.name }} {{ person.phone }}
+    </li>
+</ul>
+
+</div>
+   
+<script src="/libs/angular-1.4.9.min.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+</html>
